@@ -17,4 +17,4 @@ removed_aberent_data = isolated_client_tbl.loc[(isolated_client_tbl['MTREV'] < 1
 
 print(removed_aberent_data)
 
-removed_aberent_data.to_csv('../donnees/cleaned/data_mining_DB_clients_tbl_cleaned.csv', sep=",")
+removed_aberent_data.to_csv('../donnees/cleaned/data_mining_DB_clients_tbl_cleaned.csv', sep=",", index=False)
