@@ -7,10 +7,10 @@ import numpy as np
 
 clients_tbl = pd.read_csv('../donnees/source/data_mining_DB_clients_tbl_bis.csv', sep=',')
 
-print(clients_tbl)
+# print(clients_tbl)
 
-cols = ['Id', 'CDSEXE', 'MTREV', 'NBENF', 'CDSITFAM', 'DTADH', 'CDTMT', 'DTDEM', 'CDMOTDEM', 'CDCATCL']
-add_cols = ['AGEAD', 'agedem', 'adh']
+cols_dem = ['Id', 'CDSEXE', 'MTREV', 'NBENF', 'CDSITFAM', 'DTADH', 'CDTMT', 'DTDEM', 'CDMOTDEM', 'CDCATCL', 'AGEAD', 'agedem', 'adh']
+cols_adh = ['Id', 'CDSEXE', 'MTREV', 'NBENF', 'CDSITFAM', 'DTADH', 'CDTMT', 'CDCATCL', 'AGEAD', 'ageactu', 'adh']
 
 # Données :
 # Id
@@ -28,32 +28,56 @@ add_cols = ['AGEAD', 'agedem', 'adh']
 # Durée du contrat -> adh
 
     # Faire péter celles ou DTNAIS pourris
-# date_none = datetime.strptime(0, 0, 0000)
 cleaned_clients_tbl = clients_tbl.loc[(clients_tbl['DTNAIS'] != "0000-00-00") & (clients_tbl['DTNAIS'] != "1900-01-00") ]
-print(cleaned_clients_tbl)
 
-cleaned_clients_tbl_selected_cols = cleaned_clients_tbl[cols]
-print(cleaned_clients_tbl_selected_cols)
-# date_2007 = datetime.strptime(1, 1, 2007)
-# datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
+        # On calcul AGEAD (L'âge de la personne quand il ait adhéré)
+    # AGAD = DTADH - DTNAIS
+cleaned_clients_tbl["AGEAD"] = cleaned_clients_tbl.apply(lambda row: datetime.strptime(row['DTADH'], '%Y-%m-%d').year - datetime.strptime(row['DTNAIS'], '%Y-%m-%d').year, axis=1)
 
+    # On isole les clients toujours adhérents des clients démissionaires
+cleaned_clients_tbl_adh = cleaned_clients_tbl.loc[(pd.isna(cleaned_clients_tbl['CDMOTDEM']))]
+cleaned_clients_tbl_dem = cleaned_clients_tbl.loc[(pd.notna(cleaned_clients_tbl['CDMOTDEM']))]
+del cleaned_clients_tbl_adh['CDMOTDEM']
+del cleaned_clients_tbl_adh['DTDEM']
+
+print(cleaned_clients_tbl_adh)
+print(cleaned_clients_tbl_dem)
     # si CDMOTDEM masi pas DTDEM -> mettre 2007-01-01
+print(cleaned_clients_tbl_dem['CDMOTDEM'])
+print(cleaned_clients_tbl_dem.loc[(pd.notna(cleaned_clients_tbl_dem['CDMOTDEM'])) & (cleaned_clients_tbl_dem['DTDEM'] == '1900-12-31')])
 
-print(cleaned_clients_tbl_selected_cols['CDMOTDEM'])
-# pd.notna()
-print(cleaned_clients_tbl_selected_cols.loc[(pd.notna(cleaned_clients_tbl_selected_cols['CDMOTDEM'])) & (cleaned_clients_tbl_selected_cols['DTDEM'] == '1900-12-31')])
+    # MAsk contenant seulement les lignes avec CDMOTDEM non nul et DTDEM non défini
+mask = (pd.notna(cleaned_clients_tbl_dem['CDMOTDEM'])) & (cleaned_clients_tbl_dem['DTDEM'] == '1900-12-31')
+cleaned_clients_tbl_dem['DTDEM'][mask] = '2007-01-01'
+print(cleaned_clients_tbl_dem)
+# print(cleaned_clients_tbl_adh)
 
-mask = (pd.notna(cleaned_clients_tbl_selected_cols['CDMOTDEM'])) & (cleaned_clients_tbl_selected_cols['DTDEM'] == '1900-12-31')
-cleaned_clients_tbl_selected_cols['DTDEM'][mask] = '2007-01-01'
-print(cleaned_clients_tbl_selected_cols)
+############
+#   Ajout des colonnes manquantes
+#######
 
-    # On isole les clients toujours adhérents des clients ayant quittés
-cleaned_clients_tbl_selected_cols_adh = cleaned_clients_tbl_selected_cols.loc[(pd.isna(cleaned_clients_tbl_selected_cols['CDMOTDEM']))]
-cleaned_clients_tbl_selected_cols_dem = cleaned_clients_tbl_selected_cols.loc[(pd.notna(cleaned_clients_tbl_selected_cols['CDMOTDEM']))]
-del cleaned_clients_tbl_selected_cols_adh['CDMOTDEM']
-print(cleaned_clients_tbl_selected_cols_adh)
-# print(cleaned_clients_tbl_selected_cols_dem)
-# rules_supermarket["nb_consequents"] = rules_supermarket["consequents"].map(lambda consequents: len(consequents))
+    # On calcul agedem: L'âge de la personne quand il a démissioné (pour les démissionaires)
+cleaned_clients_tbl_dem["agedem"] = cleaned_clients_tbl_dem.apply(lambda row: datetime.strptime(row['DTDEM'], '%Y-%m-%d').year - datetime.strptime(row['DTNAIS'], '%Y-%m-%d').year, axis=1)
 
-cleaned_clients_tbl_selected_cols_adh.to_csv('../donnees/cleaned/data_mining_DB_clients_tbl_bis_adh_cleaned.csv', sep=",", index=False)
-cleaned_clients_tbl_selected_cols_dem.to_csv('../donnees/cleaned/data_mining_DB_clients_tbl_bis_dem_cleaned.csv', sep=",", index=False)
+    # On calcul ageactu: L'âge en 2007 des personnes adhérentes
+cleaned_clients_tbl_adh["ageactu"] = cleaned_clients_tbl_adh.apply(lambda row: datetime.strptime('2007-01-01', '%Y-%m-%d').year - datetime.strptime(row['DTNAIS'], '%Y-%m-%d').year, axis=1)
+
+    # On calcul adh: la durée d'adhésion
+cleaned_clients_tbl_dem["adh"] = cleaned_clients_tbl_dem.apply(lambda row: datetime.strptime(row['DTDEM'], '%Y-%m-%d').year - datetime.strptime(row['DTADH'], '%Y-%m-%d').year, axis=1)
+        # Pour les personnes toujours adhérentes, on compare avec 2007-01-01
+cleaned_clients_tbl_adh["adh"] = cleaned_clients_tbl_adh.apply(lambda row: datetime.strptime('2007-01-01', '%Y-%m-%d').year - datetime.strptime(row['DTADH'], '%Y-%m-%d').year, axis=1)
+print(cleaned_clients_tbl_adh)
+
+    # Sélection des collones
+print("----------------------ICI--------------------")
+# cleaned_clients_tbl_selected_cols = cleaned_clients_tbl[cols]
+cleaned_clients_tbl_adh_selected_cols = cleaned_clients_tbl_adh[cols_adh]
+cleaned_clients_tbl_dem_selected_cols = cleaned_clients_tbl_dem[cols_dem]
+print(cleaned_clients_tbl_adh_selected_cols)
+print(cleaned_clients_tbl_dem_selected_cols)
+
+
+
+    # Ecriture dans les csv
+cleaned_clients_tbl_adh_selected_cols.to_csv('../donnees/fusion/adh.csv', sep=",", index=False)
+cleaned_clients_tbl_dem_selected_cols.to_csv('../donnees/cleaned/data_mining_DB_clients_tbl_bis_dem_cleaned.csv', sep=",", index=False)
