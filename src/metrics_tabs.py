@@ -4,8 +4,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from histogram import discretize_histogram
-from histogram import histogram_cat
+from analyse import analyse_cat
+from analyse import analyse_num
 
 plt.ioff()
 
@@ -33,41 +33,42 @@ del clients_tbl_cat['rangagedem']
 clients_tbl_cat['NBENF'] = clients_tbl['NBENF']
 print(clients_tbl_cat)
 
+analyse_num(clients_tbl_nums, '')
+# print('===========Analyse des numérics===========')
+# for col in clients_tbl_nums:
+#     col_num = pd.DataFrame(clients_tbl_nums[col])
+#     print('-------Colonne: '+ col + "------------")
+#     print(col_num)
+#     print("--min: ")
+#     print(col_num.min())
+#     print("--max: ")
+#     print(col_num.max())
+#     print("--moyenne: ")
+#     print(col_num.mean())
+#     print("--equart-type: ")
+#     print(col_num.std())
+#     print("--Description: ")
+#     print(col_num.describe())
+#     print("--Histogramme: ")
+#     discretize_histogram(clients_tbl_nums, col, '')
 
-print('===========Analyse des numérics===========')
-for col in clients_tbl_nums:
-    col_num = pd.DataFrame(clients_tbl_nums[col])
-    print('-------Colonne: '+ col + "------------")
-    print(col_num)
-    print("--min: ")
-    print(col_num.min())
-    print("--max: ")
-    print(col_num.max())
-    print("--moyenne: ")
-    print(col_num.mean())
-    print("--equart-type: ")
-    print(col_num.std())
-    print("--Description: ")
-    print(col_num.describe())
-    print("--Histogramme: ")
-    discretize_histogram(clients_tbl_nums, col, '')
 
-
-print('===========Analyse des catégories===========')
-print(clients_tbl_cat)
-for col in clients_tbl_cat:
-    print('-------Colonne: '+ col + "------------")
-    # print(col)
-    col_cat = pd.DataFrame(clients_tbl_cat[col])
-    print(col_cat)
-    print("--Valeurs: ")
-    print(clients_tbl_cat[col].unique())
-    print("--Valeurs count: ")
-    print(clients_tbl_cat[col].value_counts())
-    print("--Valeurs NaN: ")
-    print(clients_tbl_cat[col].isna().sum())
-    print("--Description: ")
-    print(col_cat.astype('object').describe())
-    # print("--Histogramme: ")
-    histogram_cat(clients_tbl_cat, col, '')
-    # histogram.py(clients_tbl_cat, col)
+analyse_cat(clients_tbl_cat, '')
+# print('===========Analyse des catégories===========')
+# print(clients_tbl_cat)
+# for col in clients_tbl_cat:
+#     print('-------Colonne: '+ col + "------------")
+#     # print(col)
+#     col_cat = pd.DataFrame(clients_tbl_cat[col])
+#     print(col_cat)
+#     print("--Valeurs: ")
+#     print(clients_tbl_cat[col].unique())
+#     print("--Valeurs count: ")
+#     print(clients_tbl_cat[col].value_counts())
+#     print("--Valeurs NaN: ")
+#     print(clients_tbl_cat[col].isna().sum())
+#     print("--Description: ")
+#     print(col_cat.astype('object').describe())
+#     # print("--Histogramme: ")
+#     histogram_cat(clients_tbl_cat, col, '')
+#     # histogram.py(clients_tbl_cat, col)
