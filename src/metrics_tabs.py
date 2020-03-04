@@ -24,6 +24,7 @@ clients_tbl_cat['CDTMT'] = clients_tbl['CDTMT']
 del  clients_tbl_nums['CDCATCL']
 clients_tbl_cat['CDCATCL'] = clients_tbl['CDCATCL']
 print(clients_tbl_nums)
+
 del clients_tbl_cat['DTADH']
 del clients_tbl_cat['DTDEM']
 del clients_tbl_cat['rangagead']
@@ -33,7 +34,7 @@ del clients_tbl_cat['rangagedem']
 clients_tbl_cat['NBENF'] = clients_tbl['NBENF']
 print(clients_tbl_cat)
 
-analyse_num(clients_tbl_nums, '')
+analyse_num(clients_tbl_nums, 'default')
 # print('===========Analyse des numérics===========')
 # for col in clients_tbl_nums:
 #     col_num = pd.DataFrame(clients_tbl_nums[col])
@@ -53,7 +54,7 @@ analyse_num(clients_tbl_nums, '')
 #     discretize_histogram(clients_tbl_nums, col, '')
 
 
-analyse_cat(clients_tbl_cat, '')
+analyse_cat(clients_tbl_cat, 'default')
 # print('===========Analyse des catégories===========')
 # print(clients_tbl_cat)
 # for col in clients_tbl_cat:

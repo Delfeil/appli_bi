@@ -1,0 +1,394 @@
+       MTREV  NBENF  Bpadh
+0          0      0      0
+1          0      0  10807
+2       1524      0  16807
+3          0      0  10807
+4       1722      0  10807
+...      ...    ...    ...
+15017      0      0      0
+15018      0      1  10307
+15019      0      0      0
+15020      0      0      0
+15021      0      0      0
+
+[15022 rows x 3 columns]
+      CDSITFAM CDMOTDEM  CDSEXE  CDTMT  NBENF  CDCATCL
+0            A      NaN       1      0      0       98
+1            M      NaN       2      2      0       10
+2            M      NaN       3      2      0       10
+3            A       DC       2      0      0       21
+4            G      NaN       2      2      0       10
+...        ...      ...     ...    ...    ...      ...
+15017        A      NaN       3      0      0       21
+15018        M      NaN       3      2      1       10
+15019        A      NaN       2      0      0       10
+15020        A      NaN       2      0      0       10
+15021        A      NaN       2      0      0       10
+
+[15022 rows x 6 columns]
+===========Analyse des numérics===========
+-------Colonne: MTREV------------
+       MTREV
+0          0
+1          0
+2       1524
+3          0
+4       1722
+...      ...
+15017      0
+15018      0
+15019      0
+15020      0
+15021      0
+
+[15022 rows x 1 columns]
+--min: 
+MTREV    0
+dtype: int64
+--max: 
+MTREV    38413
+dtype: int64
+--moyenne: 
+MTREV    681.732725
+dtype: float64
+--equart-type: 
+MTREV    1238.179247
+dtype: float64
+--Description: 
+              MTREV
+count  15022.000000
+mean     681.732725
+std     1238.179247
+min        0.000000
+25%        0.000000
+50%        0.000000
+75%     1470.000000
+max    38413.000000
+--Histogramme: 
+       MTREV  NBENF  Bpadh
+0          0      0      0
+1          0      0  10807
+2       1524      0  16807
+3          0      0  10807
+4       1722      0  10807
+...      ...    ...    ...
+15017      0      0      0
+15018      0      1  10307
+15019      0      0      0
+15020      0      0      0
+15021      0      0      0
+
+[15022 rows x 3 columns]
+MTREV
+-------Colonne: NBENF------------
+       NBENF
+0          0
+1          0
+2          0
+3          0
+4          0
+...      ...
+15017      0
+15018      1
+15019      0
+15020      0
+15021      0
+
+[15022 rows x 1 columns]
+--min: 
+NBENF    0
+dtype: int64
+--max: 
+NBENF    13
+dtype: int64
+--moyenne: 
+NBENF    0.450672
+dtype: float64
+--equart-type: 
+NBENF    0.882142
+dtype: float64
+--Description: 
+              NBENF
+count  15022.000000
+mean       0.450672
+std        0.882142
+min        0.000000
+25%        0.000000
+50%        0.000000
+75%        0.000000
+max       13.000000
+--Histogramme: 
+       MTREV  NBENF  Bpadh
+0          0      0      0
+1          0      0  10807
+2       1524      0  16807
+3          0      0  10807
+4       1722      0  10807
+...      ...    ...    ...
+15017      0      0      0
+15018      0      1  10307
+15019      0      0      0
+15020      0      0      0
+15021      0      0      0
+
+[15022 rows x 3 columns]
+NBENF
+-------Colonne: Bpadh------------
+       Bpadh
+0          0
+1      10807
+2      16807
+3      10807
+4      10807
+...      ...
+15017      0
+15018  10307
+15019      0
+15020      0
+15021      0
+
+[15022 rows x 1 columns]
+--min: 
+Bpadh    0
+dtype: int64
+--max: 
+Bpadh    88887
+dtype: int64
+--moyenne: 
+Bpadh    15037.494009
+dtype: float64
+--equart-type: 
+Bpadh    19194.192083
+dtype: float64
+--Description: 
+              Bpadh
+count  15022.000000
+mean   15037.494009
+std    19194.192083
+min        0.000000
+25%    10107.000000
+50%    11307.000000
+75%    14907.000000
+max    88887.000000
+--Histogramme: 
+       MTREV  NBENF  Bpadh
+0          0      0      0
+1          0      0  10807
+2       1524      0  16807
+3          0      0  10807
+4       1722      0  10807
+...      ...    ...    ...
+15017      0      0      0
+15018      0      1  10307
+15019      0      0      0
+15020      0      0      0
+15021      0      0      0
+
+[15022 rows x 3 columns]
+Bpadh
+===========Analyse des catégories===========
+-------Colonne: CDSITFAM------------
+      CDSITFAM
+0            A
+1            M
+2            M
+3            A
+4            G
+...        ...
+15017        A
+15018        M
+15019        A
+15020        A
+15021        A
+
+[15022 rows x 1 columns]
+--Valeurs: 
+['A' 'M' 'G' 'D' 'B' 'C' 'E' 'V' 'S' 'U' 'F' 'P']
+--Valeurs count: 
+M    4972
+A    4396
+C    2794
+U     925
+D     721
+B     286
+G     273
+V     218
+E     153
+P     125
+S     125
+F      34
+Name: CDSITFAM, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+       CDSITFAM
+count     15022
+unique       12
+top           M
+freq       4972
+-------Colonne: CDMOTDEM------------
+      CDMOTDEM
+0          NaN
+1          NaN
+2          NaN
+3           DC
+4          NaN
+...        ...
+15017      NaN
+15018      NaN
+15019      NaN
+15020      NaN
+15021      NaN
+
+[15022 rows x 1 columns]
+--Valeurs: 
+[nan 'DC' 'DV' 'DA' 'RA']
+--Valeurs count: 
+DV    369
+DC    336
+DA     87
+RA     35
+Name: CDMOTDEM, dtype: int64
+--Valeurs NaN: 
+14195
+--Description: 
+       CDMOTDEM
+count       827
+unique        4
+top          DV
+freq        369
+-------Colonne: CDSEXE------------
+       CDSEXE
+0           1
+1           2
+2           3
+3           2
+4           2
+...       ...
+15017       3
+15018       3
+15019       2
+15020       2
+15021       2
+
+[15022 rows x 1 columns]
+--Valeurs: 
+[1 2 3 4]
+--Valeurs count: 
+2    6896
+3    5859
+4    2106
+1     161
+Name: CDSEXE, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDSEXE
+count    15022
+unique       4
+top          2
+freq      6896
+-------Colonne: CDTMT------------
+       CDTMT
+0          0
+1          2
+2          2
+3          0
+4          2
+...      ...
+15017      0
+15018      2
+15019      0
+15020      0
+15021      0
+
+[15022 rows x 1 columns]
+--Valeurs: 
+[0 2 6 4]
+--Valeurs count: 
+2    8883
+0    6025
+4      98
+6      16
+Name: CDTMT, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDTMT
+count   15022
+unique      4
+top         2
+freq     8883
+-------Colonne: NBENF------------
+       NBENF
+0          0
+1          0
+2          0
+3          0
+4          0
+...      ...
+15017      0
+15018      1
+15019      0
+15020      0
+15021      0
+
+[15022 rows x 1 columns]
+--Valeurs: 
+[ 0  3  2  1  4  5  6 13]
+--Valeurs count: 
+0     11289
+2      1597
+1      1473
+3       569
+4        83
+5         9
+6         1
+13        1
+Name: NBENF, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        NBENF
+count   15022
+unique      8
+top         0
+freq    11289
+-------Colonne: CDCATCL------------
+       CDCATCL
+0           98
+1           10
+2           10
+3           21
+4           10
+...        ...
+15017       21
+15018       10
+15019       10
+15020       10
+15021       10
+
+[15022 rows x 1 columns]
+--Valeurs: 
+[98 10 21 25 50 61 23 40 22 82 24]
+--Valeurs count: 
+10    11080
+21     2703
+25      686
+23      354
+61       90
+50       46
+24       31
+82       24
+22        4
+40        3
+98        1
+Name: CDCATCL, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDCATCL
+count     15022
+unique       11
+top          10
+freq      11080

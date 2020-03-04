@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 
 import pandas as pd
 import matplotlib
@@ -43,8 +44,7 @@ def analyse_cat(data, name):
         histogram_cat(data, col, name)
 
 def discretize_histogram(data, col, data_origine):
-    print(data)
-    print(col)
+    os.makedirs('../fig/' + data_origine, exist_ok=True)
     fig = plt.figure()
     plt.subplot(211)
     matplotlib.pyplot.xticks(fontsize=6)
@@ -57,12 +57,13 @@ def discretize_histogram(data, col, data_origine):
     pd.qcut(data[col],10, duplicates='drop').value_counts(sort=False).plot.bar()
     plt.xticks(rotation=25)
     plt.suptitle('Histogram for '+col+' discretized with equal-intervaled and equal-sized bins ' + data_origine)
-    plt.savefig('../fig/'+col+'_histogram_discretization_'+ data_origine)
+    plt.savefig('../fig/'+ data_origine + '/'+col+'_histogram_discretization_'+ data_origine)
     plt.close(fig)
 
 def histogram_cat(data, col, data_origine):
+    os.makedirs('../fig/' + data_origine, exist_ok=True)
     fig = plt.figure()
     data[col].value_counts().plot(kind='bar')
     plt.suptitle('Histogram for '+col + ' ' + data_origine)
-    plt.savefig('../fig/data_histogram_'+col + '_' + data_origine)
+    plt.savefig('../fig/'+ data_origine + '/data_histogram_'+col + '_' + data_origine)
     plt.close(fig)

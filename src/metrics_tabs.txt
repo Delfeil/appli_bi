@@ -1,0 +1,493 @@
+       MTREV  NBENF  AGEAD  agedem  adh
+0          0      0     33      64   31
+1          0      0     55      88   33
+2          0      0     39      68   29
+3          0      0     29      63   34
+4          0      0     45      72   27
+...      ...    ...    ...     ...  ...
+30327      0      0     32      55   23
+30328      0      0     36      61   25
+30329      0      0     32      51   19
+30330      0      0     31      50   19
+30331      0      0     40      62   22
+
+[30332 rows x 5 columns]
+      CDSITFAM CDMOTDEM  CDSEXE  CDTMT  CDCATCL  NBENF
+0            A       DV       2      0       21      0
+1            A       DV       2      0       21      0
+2            B       DV       2      0       21      0
+3            M       DV       3      0       21      0
+4            A       DV       2      0       21      0
+...        ...      ...     ...    ...      ...    ...
+30327        M       DV       2      0       21      0
+30328        A       DV       3      0       21      0
+30329        A       DA       3      0       21      0
+30330        A       DV       3      0       21      0
+30331        A       RA       2      0       21      0
+
+[30332 rows x 6 columns]
+===========Analyse des numérics===========
+-------Colonne: MTREV------------
+       MTREV
+0          0
+1          0
+2          0
+3          0
+4          0
+...      ...
+30327      0
+30328      0
+30329      0
+30330      0
+30331      0
+
+[30332 rows x 1 columns]
+--min: 
+MTREV    0
+dtype: int64
+--max: 
+MTREV    1524490
+dtype: int64
+--moyenne: 
+MTREV    289.00122
+dtype: float64
+--equart-type: 
+MTREV    8959.197475
+dtype: float64
+--Description: 
+              MTREV
+count  3.033200e+04
+mean   2.890012e+02
+std    8.959197e+03
+min    0.000000e+00
+25%    0.000000e+00
+50%    0.000000e+00
+75%    0.000000e+00
+max    1.524490e+06
+--Histogramme: 
+       MTREV  NBENF  AGEAD  agedem  adh
+0          0      0     33      64   31
+1          0      0     55      88   33
+2          0      0     39      68   29
+3          0      0     29      63   34
+4          0      0     45      72   27
+...      ...    ...    ...     ...  ...
+30327      0      0     32      55   23
+30328      0      0     36      61   25
+30329      0      0     32      51   19
+30330      0      0     31      50   19
+30331      0      0     40      62   22
+
+[30332 rows x 5 columns]
+MTREV
+-------Colonne: NBENF------------
+       NBENF
+0          0
+1          0
+2          0
+3          0
+4          0
+...      ...
+30327      0
+30328      0
+30329      0
+30330      0
+30331      0
+
+[30332 rows x 1 columns]
+--min: 
+NBENF    0
+dtype: int64
+--max: 
+NBENF    6
+dtype: int64
+--moyenne: 
+NBENF    0.201998
+dtype: float64
+--equart-type: 
+NBENF    0.636844
+dtype: float64
+--Description: 
+              NBENF
+count  30332.000000
+mean       0.201998
+std        0.636844
+min        0.000000
+25%        0.000000
+50%        0.000000
+75%        0.000000
+max        6.000000
+--Histogramme: 
+       MTREV  NBENF  AGEAD  agedem  adh
+0          0      0     33      64   31
+1          0      0     55      88   33
+2          0      0     39      68   29
+3          0      0     29      63   34
+4          0      0     45      72   27
+...      ...    ...    ...     ...  ...
+30327      0      0     32      55   23
+30328      0      0     36      61   25
+30329      0      0     32      51   19
+30330      0      0     31      50   19
+30331      0      0     40      62   22
+
+[30332 rows x 5 columns]
+NBENF
+-------Colonne: AGEAD------------
+       AGEAD
+0         33
+1         55
+2         39
+3         29
+4         45
+...      ...
+30327     32
+30328     36
+30329     32
+30330     31
+30331     40
+
+[30332 rows x 1 columns]
+--min: 
+AGEAD    19
+dtype: int64
+--max: 
+AGEAD    89
+dtype: int64
+--moyenne: 
+AGEAD    38.037485
+dtype: float64
+--equart-type: 
+AGEAD    11.573183
+dtype: float64
+--Description: 
+              AGEAD
+count  30332.000000
+mean      38.037485
+std       11.573183
+min       19.000000
+25%       28.000000
+50%       36.000000
+75%       46.000000
+max       89.000000
+--Histogramme: 
+       MTREV  NBENF  AGEAD  agedem  adh
+0          0      0     33      64   31
+1          0      0     55      88   33
+2          0      0     39      68   29
+3          0      0     29      63   34
+4          0      0     45      72   27
+...      ...    ...    ...     ...  ...
+30327      0      0     32      55   23
+30328      0      0     36      61   25
+30329      0      0     32      51   19
+30330      0      0     31      50   19
+30331      0      0     40      62   22
+
+[30332 rows x 5 columns]
+AGEAD
+-------Colonne: agedem------------
+       agedem
+0          64
+1          88
+2          68
+3          63
+4          72
+...       ...
+30327      55
+30328      61
+30329      51
+30330      50
+30331      62
+
+[30332 rows x 1 columns]
+--min: 
+agedem    19
+dtype: int64
+--max: 
+agedem    102
+dtype: int64
+--moyenne: 
+agedem    50.086246
+dtype: float64
+--equart-type: 
+agedem    14.505487
+dtype: float64
+--Description: 
+             agedem
+count  30332.000000
+mean      50.086246
+std       14.505487
+min       19.000000
+25%       38.000000
+50%       50.000000
+75%       61.000000
+max      102.000000
+--Histogramme: 
+       MTREV  NBENF  AGEAD  agedem  adh
+0          0      0     33      64   31
+1          0      0     55      88   33
+2          0      0     39      68   29
+3          0      0     29      63   34
+4          0      0     45      72   27
+...      ...    ...    ...     ...  ...
+30327      0      0     32      55   23
+30328      0      0     36      61   25
+30329      0      0     32      51   19
+30330      0      0     31      50   19
+30331      0      0     40      62   22
+
+[30332 rows x 5 columns]
+agedem
+-------Colonne: adh------------
+       adh
+0       31
+1       33
+2       29
+3       34
+4       27
+...    ...
+30327   23
+30328   25
+30329   19
+30330   19
+30331   22
+
+[30332 rows x 1 columns]
+--min: 
+adh    0
+dtype: int64
+--max: 
+adh    34
+dtype: int64
+--moyenne: 
+adh    12.04876
+dtype: float64
+--equart-type: 
+adh    9.051472
+dtype: float64
+--Description: 
+                adh
+count  30332.000000
+mean      12.048760
+std        9.051472
+min        0.000000
+25%        4.000000
+50%       11.000000
+75%       20.000000
+max       34.000000
+--Histogramme: 
+       MTREV  NBENF  AGEAD  agedem  adh
+0          0      0     33      64   31
+1          0      0     55      88   33
+2          0      0     39      68   29
+3          0      0     29      63   34
+4          0      0     45      72   27
+...      ...    ...    ...     ...  ...
+30327      0      0     32      55   23
+30328      0      0     36      61   25
+30329      0      0     32      51   19
+30330      0      0     31      50   19
+30331      0      0     40      62   22
+
+[30332 rows x 5 columns]
+adh
+===========Analyse des catégories===========
+-------Colonne: CDSITFAM------------
+      CDSITFAM
+0            A
+1            A
+2            B
+3            M
+4            A
+...        ...
+30327        M
+30328        A
+30329        A
+30330        A
+30331        A
+
+[30332 rows x 1 columns]
+--Valeurs: 
+['A' 'B' 'M' 'C' 'D' 'U' 'S' 'V' 'E' 'G' 'P' 'F']
+--Valeurs count: 
+A    16463
+M     7221
+C     3424
+D     1130
+U     1046
+V      383
+B      293
+S      172
+P       93
+G       53
+E       45
+F        9
+Name: CDSITFAM, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+       CDSITFAM
+count     30332
+unique       12
+top           A
+freq      16463
+-------Colonne: CDMOTDEM------------
+      CDMOTDEM
+0           DV
+1           DV
+2           DV
+3           DV
+4           DV
+...        ...
+30327       DV
+30328       DV
+30329       DA
+30330       DV
+30331       RA
+
+[30332 rows x 1 columns]
+--Valeurs: 
+['DV' 'DA' 'RA']
+--Valeurs count: 
+DV    23723
+DA     5079
+RA     1530
+Name: CDMOTDEM, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+       CDMOTDEM
+count     30332
+unique        3
+top          DV
+freq      23723
+-------Colonne: CDSEXE------------
+       CDSEXE
+0           2
+1           2
+2           2
+3           3
+4           2
+...       ...
+30327       2
+30328       3
+30329       3
+30330       3
+30331       2
+
+[30332 rows x 1 columns]
+--Valeurs: 
+[2 3 4]
+--Valeurs count: 
+3    13628
+2    13180
+4     3524
+Name: CDSEXE, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDSEXE
+count    30332
+unique       3
+top          3
+freq     13628
+-------Colonne: CDTMT------------
+       CDTMT
+0          0
+1          0
+2          0
+3          0
+4          0
+...      ...
+30327      0
+30328      0
+30329      0
+30330      0
+30331      0
+
+[30332 rows x 1 columns]
+--Valeurs: 
+[0 2 6]
+--Valeurs count: 
+0    28857
+2     1474
+6        1
+Name: CDTMT, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDTMT
+count   30332
+unique      3
+top         0
+freq    28857
+-------Colonne: CDCATCL------------
+       CDCATCL
+0           21
+1           21
+2           21
+3           21
+4           21
+...        ...
+30327       21
+30328       21
+30329       21
+30330       21
+30331       21
+
+[30332 rows x 1 columns]
+--Valeurs: 
+[21 40 10 25 32 23 22 24]
+--Valeurs count: 
+21    29005
+25      711
+10      389
+23      127
+40       60
+24       35
+22        3
+32        2
+Name: CDCATCL, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDCATCL
+count     30332
+unique        8
+top          21
+freq      29005
+-------Colonne: NBENF------------
+       NBENF
+0          0
+1          0
+2          0
+3          0
+4          0
+...      ...
+30327      0
+30328      0
+30329      0
+30330      0
+30331      0
+
+[30332 rows x 1 columns]
+--Valeurs: 
+[0 2 1 3 4 5 6]
+--Valeurs count: 
+0    27017
+2     1373
+1     1277
+3      566
+4       90
+5        8
+6        1
+Name: NBENF, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        NBENF
+count   30332
+unique      7
+top         0
+freq    27017
