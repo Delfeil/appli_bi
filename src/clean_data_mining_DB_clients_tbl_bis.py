@@ -30,6 +30,13 @@ cols_adh = ['Id', 'CDSEXE', 'MTREV', 'NBENF', 'CDSITFAM', 'DTADH', 'CDTMT', 'CDC
     # Faire péter celles ou DTNAIS pourris
 cleaned_clients_tbl = clients_tbl.loc[(clients_tbl['DTNAIS'] != "0000-00-00") & (clients_tbl['DTNAIS'] != "1900-01-00") ]
 
+####
+# Transformer NBENF en catégorie
+####
+    # Si NBENF > 4 -> '4et+'
+mask_sup_nbenf = (cleaned_clients_tbl['NBENF'] > 3)
+cleaned_clients_tbl['NBENF'][mask_sup_nbenf] = '4 et plus'
+
         # On calcul AGEAD (L'âge de la personne quand il ait adhéré)
     # AGAD = DTADH - DTNAIS
 cleaned_clients_tbl["AGEAD"] = cleaned_clients_tbl.apply(lambda row: datetime.strptime(row['DTADH'], '%Y-%m-%d').year - datetime.strptime(row['DTNAIS'], '%Y-%m-%d').year, axis=1)
