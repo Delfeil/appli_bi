@@ -4,7 +4,13 @@
 import pandas as pd
 from analyse import analyse_cat
 from analyse import analyse_num
+import sys
 
+
+if(len(sys.argv) == 1):
+    name = "dem_cleaned"
+else:
+    name = sys.argv[1]
 
 clients_dem = pd.read_csv('../donnees/fusion/dem.csv', sep=',')
 
@@ -27,6 +33,6 @@ clients_dem_cat['NBENF'] = clients_dem['NBENF']
 print(clients_dem_nums)
 print(clients_dem_cat)
 
-analyse_num(clients_dem_nums, 'dem_cleaned')
+analyse_num(clients_dem_nums, name)
 
-analyse_cat(clients_dem_cat, 'dem_cleaned')
+analyse_cat(clients_dem_cat, name)

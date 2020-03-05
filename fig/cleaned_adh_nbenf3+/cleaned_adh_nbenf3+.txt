@@ -1,0 +1,346 @@
+       MTREV  AGEAD  ageactu  adh
+0          0     29       68   39
+1       1524     29       66   37
+2       1722     35       72   37
+3          0     34       70   36
+4          0     37       73   36
+...      ...    ...      ...  ...
+14026      0     33       59   26
+14027      0     27       54   27
+14028      0     29       56   27
+14029      0     37       63   26
+14030      0     41       66   25
+
+[14031 rows x 4 columns]
+      NBENF CDSITFAM  CDSEXE  CDCATCL  CDTMT
+0         0        M       2       10      2
+1         0        M       3       10      2
+2         0        G       2       10      2
+3         0        D       3       10      2
+4         0        A       3       10      0
+...     ...      ...     ...      ...    ...
+14026     0        A       3       21      0
+14027     1        M       3       10      2
+14028     0        A       2       10      0
+14029     0        A       2       10      0
+14030     0        A       2       10      0
+
+[14031 rows x 5 columns]
+===========Analyse des numérics===========
+-------Colonne: MTREV------------
+       MTREV
+0          0
+1       1524
+2       1722
+3          0
+4          0
+...      ...
+14026      0
+14027      0
+14028      0
+14029      0
+14030      0
+
+[14031 rows x 1 columns]
+--min: 
+MTREV    0
+dtype: int64
+--max: 
+MTREV    38413
+dtype: int64
+--moyenne: 
+MTREV    717.285012
+dtype: float64
+--equart-type: 
+MTREV    1249.866501
+dtype: float64
+--Description: 
+              MTREV
+count  14031.000000
+mean     717.285012
+std     1249.866501
+min        0.000000
+25%        0.000000
+50%        0.000000
+75%     1529.000000
+max    38413.000000
+--Histogramme: 
+-------Colonne: AGEAD------------
+       AGEAD
+0         29
+1         29
+2         35
+3         34
+4         37
+...      ...
+14026     33
+14027     27
+14028     29
+14029     37
+14030     41
+
+[14031 rows x 1 columns]
+--min: 
+AGEAD    0
+dtype: int64
+--max: 
+AGEAD    90
+dtype: int64
+--moyenne: 
+AGEAD    36.006272
+dtype: float64
+--equart-type: 
+AGEAD    12.404783
+dtype: float64
+--Description: 
+              AGEAD
+count  14031.000000
+mean      36.006272
+std       12.404783
+min        0.000000
+25%       27.000000
+50%       34.000000
+75%       44.000000
+max       90.000000
+--Histogramme: 
+-------Colonne: ageactu------------
+       ageactu
+0           68
+1           66
+2           72
+3           70
+4           73
+...        ...
+14026       59
+14027       54
+14028       56
+14029       63
+14030       66
+
+[14031 rows x 1 columns]
+--min: 
+ageactu    0
+dtype: int64
+--max: 
+ageactu    102
+dtype: int64
+--moyenne: 
+ageactu    49.504597
+dtype: float64
+--equart-type: 
+ageactu    14.904197
+dtype: float64
+--Description: 
+            ageactu
+count  14031.000000
+mean      49.504597
+std       14.904197
+min        0.000000
+25%       39.000000
+50%       50.000000
+75%       60.000000
+max      102.000000
+--Histogramme: 
+-------Colonne: adh------------
+       adh
+0       39
+1       37
+2       37
+3       36
+4       36
+...    ...
+14026   26
+14027   27
+14028   27
+14029   26
+14030   25
+
+[14031 rows x 1 columns]
+--min: 
+adh    0
+dtype: int64
+--max: 
+adh    50
+dtype: int64
+--moyenne: 
+adh    13.498325
+dtype: float64
+--equart-type: 
+adh    9.710792
+dtype: float64
+--Description: 
+                adh
+count  14031.000000
+mean      13.498325
+std        9.710792
+min        0.000000
+25%        5.000000
+50%       11.000000
+75%       22.000000
+max       50.000000
+--Histogramme: 
+===========Analyse des catégories===========
+-------Colonne: NBENF------------
+      NBENF
+0         0
+1         0
+2         0
+3         0
+4         0
+...     ...
+14026     0
+14027     1
+14028     0
+14029     0
+14030     0
+
+[14031 rows x 1 columns]
+--Valeurs: 
+['0' '3EtPlus' '2' '1']
+--Valeurs count: 
+0          10348
+2           1576
+1           1451
+3EtPlus      656
+Name: NBENF, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        NBENF
+count   14031
+unique      4
+top         0
+freq    10348
+-------Colonne: CDSITFAM------------
+      CDSITFAM
+0            M
+1            M
+2            G
+3            D
+4            A
+...        ...
+14026        A
+14027        M
+14028        A
+14029        A
+14030        A
+
+[14031 rows x 1 columns]
+--Valeurs: 
+['M' 'G' 'D' 'A' 'C' 'B' 'E' 'V' 'S' 'U' 'F' 'P']
+--Valeurs count: 
+M    4840
+A    3682
+C    2716
+U     910
+D     700
+B     279
+G     270
+V     205
+E     152
+P     125
+S     118
+F      34
+Name: CDSITFAM, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+       CDSITFAM
+count     14031
+unique       12
+top           M
+freq       4840
+-------Colonne: CDSEXE------------
+       CDSEXE
+0           2
+1           3
+2           2
+3           3
+4           3
+...       ...
+14026       3
+14027       3
+14028       2
+14029       2
+14030       2
+
+[14031 rows x 1 columns]
+--Valeurs: 
+[2 3 4]
+--Valeurs count: 
+2    6462
+3    5538
+4    2031
+Name: CDSEXE, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDSEXE
+count    14031
+unique       3
+top          2
+freq      6462
+-------Colonne: CDCATCL------------
+       CDCATCL
+0           10
+1           10
+2           10
+3           10
+4           10
+...        ...
+14026       21
+14027       10
+14028       10
+14029       10
+14030       10
+
+[14031 rows x 1 columns]
+--Valeurs: 
+[10 25 21 23 40 22 24]
+--Valeurs count: 
+10    10790
+21     2181
+25      676
+23      347
+24       30
+22        4
+40        3
+Name: CDCATCL, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDCATCL
+count     14031
+unique        7
+top          10
+freq      10790
+-------Colonne: CDTMT------------
+       CDTMT
+0          2
+1          2
+2          2
+3          2
+4          0
+...      ...
+14026      0
+14027      2
+14028      0
+14029      0
+14030      0
+
+[14031 rows x 1 columns]
+--Valeurs: 
+[2 0 6]
+--Valeurs count: 
+2    8735
+0    5280
+6      16
+Name: CDTMT, dtype: int64
+--Valeurs NaN: 
+0
+--Description: 
+        CDTMT
+count   14031
+unique      3
+top         2
+freq     8735

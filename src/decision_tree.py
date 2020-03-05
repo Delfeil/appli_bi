@@ -39,7 +39,7 @@ clients_dem_num = clients_dem.select_dtypes(include=numerics)
 del clients_dem_num['CDSEXE']
 del clients_dem_num['CDTMT']
 del clients_dem_num['CDCATCL']
-clients_dem_num['is_adh'] = "demissionaire"
+clients_dem_num['is_adh'] = "demissionnaire"
 print(clients_dem_num)
 
 fusion_clients_num = pd.DataFrame(clients_adh_num).append( pd.DataFrame(clients_dem_num))
@@ -51,9 +51,9 @@ fusion_clients_num = shuffle(fusion_clients_num)
 ###
 # Arbre de décision
 ###
-feature_names = ['MTREV', 'NBENF', 'AGEAD', 'agedem']
+# feature_names = ['MTREV', 'NBENF', 'AGEAD', 'agedem']
 # feature_names = ['MTREV', 'AGEAD', 'agedem']
-# feature_names = ['AGEAD', 'agedem']
+feature_names = ['AGEAD', 'adh']
 # feature_names = ['NBENF', 'AGEAD', 'agedem']
 X = fusion_clients_num[feature_names]
 y = fusion_clients_num['is_adh']
@@ -90,7 +90,6 @@ dot_data = tree.export_graphviz(dectree, out_file=None,
                                 feature_names=feature_names,
                                 class_names=fusion_clients_num['is_adh'].unique(),
                                 filled=True, rounded=True,
-                                special_characters=True,
-                                max_depth=3)
+                                special_characters=True)
 graph = graphviz.Source(dot_data)
 graph.render(directory='../fig',filename='decision_tree')
