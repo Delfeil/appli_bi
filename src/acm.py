@@ -16,6 +16,13 @@ del clients_adh_cat['CATageactu']
 clients_adh_cat['CDSEXE'] = clients_adh['CDSEXE']
 clients_adh_cat['CDTMT'] = clients_adh['CDTMT']
 clients_adh_cat['CDCATCL'] = clients_adh['CDCATCL']
+
+# Enlever des variables catégorielles
+del clients_adh_cat['NBENF']
+del clients_adh_cat['CATAGEAD']
+del clients_adh_cat['CATadh']
+del clients_adh_cat['CDSEXE']
+
 print(clients_adh_cat)
 
 # print(clients_dem)
@@ -28,6 +35,13 @@ del clients_dem_cat['CATagedem']
 clients_dem_cat['CDSEXE'] = clients_dem['CDSEXE']
 clients_dem_cat['CDTMT'] = clients_dem['CDTMT']
 clients_dem_cat['CDCATCL'] = clients_dem['CDCATCL']
+
+# Enlever des variables catégorielles
+del clients_dem_cat['NBENF']
+del clients_dem_cat['CATAGEAD']
+del clients_dem_cat['CATadh']
+del clients_dem_cat['CDSEXE']
+
 print(clients_dem_cat)
 
 clients_dem_adh_cat = pd.DataFrame(clients_adh_cat).append( pd.DataFrame(clients_dem_cat))
@@ -35,7 +49,7 @@ print(clients_dem_adh_cat)
 X = clients_dem_adh_cat.to_numpy(dtype='str')
 print(X)
 print(clients_dem_adh_cat.columns.values)
-mca = MCA(row_labels=clients_dem_adh_cat.index.values.astype('str'), var_labels=clients_dem_adh_cat.columns.values, n_components=4)
+mca = MCA(row_labels=clients_dem_adh_cat.index.values.astype('str'), var_labels=clients_dem_adh_cat.columns.values)
 
 mca.fit(X)
 print(mca.eig_)
@@ -47,9 +61,9 @@ interpretationTable = pd.DataFrame({'val_axe1': mca.col_coord_[:, 0],
                                     'val_axe2': mca.col_coord_[:, 1],
                                     'contrib_axe2': mca.col_contrib_[:, 1],
                                     'cos2_axe2': mca.col_cos2_[:, 1],
-                                    # 'val_axe3': mca.col_coord_[:, 2],
-                                    # 'contrib_axe3': mca.col_contrib_[:, 2],
-                                    # 'cos2_axe3': mca.col_cos2_[:, 2]
+                                    'val_axe3': mca.col_coord_[:, 2],
+                                    'contrib_axe3': mca.col_contrib_[:, 2],
+                                    'cos2_axe3': mca.col_cos2_[:, 2]
                                     }, index=mca.col_labels_)
 
 mask_sup_5 = ((interpretationTable['cos2_axe1'] > 0.2) | (interpretationTable['cos2_axe2'] > 0.2))
@@ -82,10 +96,27 @@ print(interpretationTable[mask_sup_5])
 # CDSITFAM = C est corrélé positivement avec l'axe 2
 # CDSEXE = 4 est corrélé positivement avec l'axe 2
 
+
+
+#####
+## Interprétation avec les champs: ['CDSITFAM' 'CDTMT' 'CDCATCL']
+#####
+###
+# Axe 1
+###
+# | Variable   | Axe 1     | Contribution | Cos²     |
+# |------------|-----------|--------------|----------|
+# | CDTMT_0    | 0.489794  | 9.357616     | 0.802165 |
+# | CDTMT_2    | -1.637058 | 31.211494    | 0.799764 |
+# | CDCATCL_10 | -1.472612 | 27.707879    | 0.731171 |
+# | CDCATCL_21 | 0.485199  | 8.387519     | 0.557537 |
+
+# CDTMT = 0 est corrélé positivement avec l'axe 1
+# CDCATCL = 21 est corrélé positivement avec l'axe 1
+# CDTMT = 2 est corrélé négativement avec l'axe 1
+# CDCATCL = 10 est corrélé négativement avec l'axe 1
+
 # mca.plot_eigenvalues()
-
-
-
 
 # print(mca.row_labels)
 # print(mca.col_labels_)
@@ -98,5 +129,5 @@ print(interpretationTable[mask_sup_5])
 # mca.plot_col_contrib(num_axis=1, short_labels=False, nb_values=5)
 # mca.plot_col_contrib(num_axis=2, short_labels=False, nb_values=5)
 
-mca.mapping_col(num_x_axis=1, num_y_axis=2, short_labels=False)
+# mca.mapping_col(num_x_axis=1, num_y_axis=2, short_labels=False)
 # mca.mapping_row(num_x_axis=1, num_y_axis=2)

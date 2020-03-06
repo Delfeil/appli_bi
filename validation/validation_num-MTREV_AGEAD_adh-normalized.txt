@@ -1,0 +1,83 @@
+D:\master_ilsen\appli_bi\src>python ./validation.py
+       CDSEXE  MTREV    NBENF CDSITFAM       DTADH  CDTMT  CDCATCL  AGEAD  adh CATAGEAD CATadh          is_adh
+0           2   2364        0        E  1990-06-08      2       10     39   17    31_40  11_20        adherent
+1           4    841  enfants        U  1998-11-02      0       21     27    8    21_30   0_10  demissionnaire
+2           3      0        0        U  1996-10-11      0       21     24   10    21_30   0_10  demissionnaire
+3           2      0        0        A  2000-04-19      0       21     51    7    51_60   0_10        adherent
+4           3      0        0        S  2000-02-15      0       25     49    2    41_50   0_10  demissionnaire
+...       ...    ...      ...      ...         ...    ...      ...    ...  ...      ...    ...             ...
+44901       3      0        0        A  2002-06-13      0       10     53    5    51_60   0_10        adherent
+44902       4      0        0        A  1996-01-30      0       21     38    7    31_40   0_10  demissionnaire
+44903       3      0        0        A  1978-10-05      0       21     23   27    21_30  21_30  demissionnaire
+44904       2      0        0        A  1997-12-05      0       21     32    7    31_40   0_10  demissionnaire
+44905       4      0        0        C  1997-01-22      0       21     27    3    21_30   0_10  demissionnaire
+
+[44906 rows x 12 columns]
+       MTREV  AGEAD  adh
+0       2364     39   17
+1        841     27    8
+2          0     24   10
+3          0     51    7
+4          0     49    2
+...      ...    ...  ...
+44901      0     53    5
+44902      0     38    7
+44903      0     23   27
+44904      0     32    7
+44905      0     27    3
+
+[44906 rows x 3 columns]
+./validation.py:42: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  clinets_cat['CDSEXE'] = clients['CDSEXE']
+./validation.py:43: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  clinets_cat['CDTMT'] = clients['CDTMT']
+./validation.py:44: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  clinets_cat['CDCATCL'] = clients['CDCATCL']
+         NBENF CDSITFAM       DTADH CATAGEAD CATadh  CDSEXE  CDTMT  CDCATCL
+0            0        E  1990-06-08    31_40  11_20       2      2       10
+1      enfants        U  1998-11-02    21_30   0_10       4      0       21
+2            0        U  1996-10-11    21_30   0_10       3      0       21
+3            0        A  2000-04-19    51_60   0_10       2      0       21
+4            0        S  2000-02-15    41_50   0_10       3      0       25
+...        ...      ...         ...      ...    ...     ...    ...      ...
+44901        0        A  2002-06-13    51_60   0_10       3      0       10
+44902        0        A  1996-01-30    31_40   0_10       4      0       21
+44903        0        A  1978-10-05    21_30  21_30       3      0       21
+44904        0        A  1997-12-05    31_40   0_10       2      0       21
+44905        0        C  1997-01-22    21_30   0_10       4      0       21
+
+[44906 rows x 8 columns]
+labor normalized
+              0         1         2
+0      1.134815  0.134362  0.484205
+1      0.260152 -0.875737 -0.484838
+2     -0.222837 -1.128262 -0.269495
+3     -0.222837  1.144461 -0.592509
+4     -0.222837  0.976111 -1.130867
+...         ...       ...       ...
+44901 -0.222837  1.312811 -0.807852
+44902 -0.222837  0.050187 -0.592509
+44903 -0.222837 -1.212437  1.560919
+44904 -0.222837 -0.454863 -0.592509
+44905 -0.222837 -0.875737 -1.023195
+
+[44906 rows x 3 columns]
+----------Cross_validation: labor_num------------
+Accuracy of Dummy most_frequent classifier on cross-validation: 0.69 (+/- 0.00)
+Accuracy of Naive Bayes classifier on cross-validation: 0.70 (+/- 0.00)
+Accuracy of Decision tree classifier on cross-validation: 0.72 (+/- 0.01)
+Accuracy of Logistic regression classifier on cross-validation: 0.71 (+/- 0.00)
+Accuracy of SVC classifier on cross-validation: 0.74 (+/- 0.01)
+
