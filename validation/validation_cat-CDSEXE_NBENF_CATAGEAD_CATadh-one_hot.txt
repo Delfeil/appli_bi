@@ -1,0 +1,60 @@
+       CDSEXE  MTREV    NBENF CDSITFAM  ... adh  CATAGEAD  CATadh          is_adh
+0           2   2364        0        E  ...  17     31_40   11_20        adherent
+1           4    841  enfants        U  ...   8     21_30    0_10  demissionnaire
+2           3      0        0        U  ...  10     21_30    0_10  demissionnaire
+3           2      0        0        A  ...   7     51_60    0_10        adherent
+4           3      0        0        S  ...   2     41_50    0_10  demissionnaire
+...       ...    ...      ...      ...  ...  ..       ...     ...             ...
+44901       3      0        0        A  ...   5     51_60    0_10        adherent
+44902       4      0        0        A  ...   7     31_40    0_10  demissionnaire
+44903       3      0        0        A  ...  27     21_30   21_30  demissionnaire
+44904       2      0        0        A  ...   7     31_40    0_10  demissionnaire
+44905       4      0        0        C  ...   3     21_30    0_10  demissionnaire
+
+[44906 rows x 12 columns]
+0              adherent
+1        demissionnaire
+2        demissionnaire
+3              adherent
+4        demissionnaire
+              ...      
+44901          adherent
+44902    demissionnaire
+44903    demissionnaire
+44904    demissionnaire
+44905    demissionnaire
+Name: is_adh, Length: 44906, dtype: object
+       CDSEXE    NBENF CATAGEAD CATadh
+0           2        0    31_40  11_20
+1           4  enfants    21_30   0_10
+2           3        0    21_30   0_10
+3           2        0    51_60   0_10
+4           3        0    41_50   0_10
+...       ...      ...      ...    ...
+44901       3        0    51_60   0_10
+44902       4        0    31_40   0_10
+44903       3        0    21_30  21_30
+44904       2        0    31_40   0_10
+44905       4        0    21_30   0_10
+
+[44906 rows x 4 columns]
+       CDSEXE_2  CDSEXE_3  CDSEXE_4  ...  CATadh_21_30  CATadh_31_40  CATadh_41_50
+0             1         0         0  ...             0             0             0
+1             0         0         1  ...             0             0             0
+2             0         1         0  ...             0             0             0
+3             1         0         0  ...             0             0             0
+4             0         1         0  ...             0             0             0
+...         ...       ...       ...  ...           ...           ...           ...
+44901         0         1         0  ...             0             0             0
+44902         0         0         1  ...             0             0             0
+44903         0         1         0  ...             1             0             0
+44904         1         0         0  ...             0             0             0
+44905         0         0         1  ...             0             0             0
+
+[44906 rows x 18 columns]
+----------Cross_validation: labor_cat------------
+Accuracy of Dummy most_frequent classifier on cross-validation: 0.69 (+/- 0.00)
+Accuracy of Naive Bayes classifier on cross-validation: 0.70 (+/- 0.00)
+Accuracy of Decision tree classifier on cross-validation: 0.72 (+/- 0.00)
+Accuracy of Logistic regression classifier on cross-validation: 0.71 (+/- 0.00)
+Accuracy of SVC classifier on cross-validation: 0.72 (+/- 0.00)
