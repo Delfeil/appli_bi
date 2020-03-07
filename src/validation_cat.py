@@ -35,10 +35,15 @@ del clients['AGEAD']
 del clients['adh']
 
 ## enlever les valeurs catégorielles innutiles
-del clients['CDSEXE']
-del clients['NBENF']
-del clients['CATAGEAD']
-del clients['CATadh']
+# del clients['CDSEXE']
+# del clients['NBENF']
+# del clients['CATAGEAD']
+# del clients['CATadh']
+
+##enlever les valeurs catégorieles utiles
+del clients['CDSITFAM']
+del clients['CDTMT']
+del clients['CDCATCL']
 
 print(clients)
 
