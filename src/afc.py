@@ -30,6 +30,17 @@ clients_dem_cat['CDTMT'] = clients_dem['CDTMT']
 clients_dem_cat['CDCATCL'] = clients_dem['CDCATCL']
 print(clients_dem_cat)
 
+categories = []
+
+for col_cat in clients_dem_cat:
+    # print(col_cat)
+    cats = col_cat + '-' + clients_dem_cat[col_cat].apply(str).unique()
+    # print(cats)
+    categories.extend(cats.tolist())
+
+print(categories)
+
+exit()
 clients_dem_adh_cat = pd.DataFrame(clients_adh_cat).append( pd.DataFrame(clients_dem_cat))
 print(clients_dem_adh_cat)
 
