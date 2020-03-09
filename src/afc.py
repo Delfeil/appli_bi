@@ -106,20 +106,19 @@ my_ca.mapping(num_x_axis=1, num_y_axis=1)
  ###
  # Axe 1
  ###
-# | Variable       | Axe 1      | Contribution | Cos² |
-# |----------------|------------|--------------|------|
-# | CDTMT-0        | 0.344449   | 7.360246     | 1.0  |
-# | CDTMT-2        | -1.152083  | 24.584209    | 1.0  |
-# | CDCATCL-21     | 0.524974   | 15.616062    | 1.0  |
-# | CDCATCL-10     | -1.382079  | 38.814501    | 1.0  |
+# | Variable       | Axe 1     | Contribution | Cos² |
+# |----------------|-----------|--------------|------|
+# | CDTMT-0        | 0.344449  | 7.360246     | 1.0  |
+# | CDTMT-2        | -1.152083 | 24.584209    | 1.0  |
+# | CDCATCL-21     | 0.524974  | 15.616062    | 1.0  |
+# | CDCATCL-10     | -1.382079 | 38.814501    | 1.0  |
 
-# | NBENF-enfants | -0.455895 | 2.623237 | 1.0  | Les utiliser?
-# | CDSITFAM-A | 0.286592 | 3.022574 | 1.0  | Les utiliser?
+# | NBENF-enfants  | -0.455895 | 2.623237     | 1.0  | Les utiliser?
+# | CDSITFAM-A     | 0.286592  | 3.022574     | 1.0  | Les utiliser?
 
-
-# |----------------|------------|--------------|------|
-# | demissionnaire | 0.283797   | 31.238268    | 1.0  |
-# | adherent       | -0.624694  | 68.761732    | 1.0  |
+# |----------------|-----------|--------------|------|
+# | demissionnaire | 0.283797  | 31.238268    | 1.0  |
+# | adherent       | -0.624694 | 68.761732    | 1.0  |
 
 # CDTMT = 0 est corrélé positivement avec l'axe 1
 # CDCATCL = 21 est corrélé positivement avec l'axe 1
