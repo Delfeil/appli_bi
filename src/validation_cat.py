@@ -56,17 +56,15 @@ def validation_cat():
     # Test des classifications
     ####
     from sklearn.dummy import DummyClassifier
-    from sklearn.naive_bayes import GaussianNB
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.linear_model import LogisticRegression
 
     dummycl = DummyClassifier(strategy="most_frequent")
-    gmb = GaussianNB()
     dectree = DecisionTreeClassifier()
     logreg = LogisticRegression()
 
-    lst_classif = [dummycl, gmb, dectree, logreg]
-    lst_classif_names = ['Dummy most_frequent', 'Naive Bayes', 'Decision tree', 'Logistic regression']
+    lst_classif = [dummycl, dectree, logreg]
+    lst_classif_names = ['Dummy most_frequent', 'Decision tree', 'Logistic regression']
 
 
     ###
