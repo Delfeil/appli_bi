@@ -1,73 +1,104 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pandas as pd
-from fanalysis.mca import MCA
+def analyse_acm():
+    print("#################")
+    print("#####RUN ACM#####")
+    print("#################")
+    import pandas as pd
+    from fanalysis.mca import MCA
 
-clients_adh = pd.read_csv('../donnees/fusion/adh.csv', sep=',')
-clients_dem = pd.read_csv('../donnees/fusion/dem.csv', sep=',')
+    clients_adh = pd.read_csv('../donnees/fusion/adh.csv', sep=',')
+    clients_dem = pd.read_csv('../donnees/fusion/dem.csv', sep=',')
 
-numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-# print(clients_adh)
-clients_adh_cat = clients_adh.select_dtypes(exclude=numerics)
-del clients_adh_cat['DTADH']
-del clients_adh_cat['is_adh']
-del clients_adh_cat['CATageactu']
-clients_adh_cat['CDSEXE'] = clients_adh['CDSEXE']
-clients_adh_cat['CDTMT'] = clients_adh['CDTMT']
-clients_adh_cat['CDCATCL'] = clients_adh['CDCATCL']
+    numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    # print(clients_adh)
+    clients_adh_cat = clients_adh.select_dtypes(exclude=numerics)
+    del clients_adh_cat['DTADH']
+    del clients_adh_cat['is_adh']
+    del clients_adh_cat['CATageactu']
+    clients_adh_cat['CDSEXE'] = clients_adh['CDSEXE']
+    clients_adh_cat['CDTMT'] = clients_adh['CDTMT']
+    clients_adh_cat['CDCATCL'] = clients_adh['CDCATCL']
 
-# Enlever des variables catégorielles
-del clients_adh_cat['NBENF']
-del clients_adh_cat['CATAGEAD']
-del clients_adh_cat['CATadh']
-del clients_adh_cat['CDSEXE']
+    # Enlever des variables catégorielles
+    del clients_adh_cat['NBENF']
+    del clients_adh_cat['CATAGEAD']
+    del clients_adh_cat['CATadh']
+    del clients_adh_cat['CDSEXE']
 
-print(clients_adh_cat)
+    print(clients_adh_cat)
 
-# print(clients_dem)
-clients_dem_cat = clients_dem.select_dtypes(exclude=numerics)
-del clients_dem_cat['CDMOTDEM']
-del clients_dem_cat['DTADH']
-del clients_dem_cat['DTDEM']
-del clients_dem_cat['is_adh']
-del clients_dem_cat['CATagedem']
-clients_dem_cat['CDSEXE'] = clients_dem['CDSEXE']
-clients_dem_cat['CDTMT'] = clients_dem['CDTMT']
-clients_dem_cat['CDCATCL'] = clients_dem['CDCATCL']
+    # print(clients_dem)
+    clients_dem_cat = clients_dem.select_dtypes(exclude=numerics)
+    del clients_dem_cat['CDMOTDEM']
+    del clients_dem_cat['DTADH']
+    del clients_dem_cat['DTDEM']
+    del clients_dem_cat['is_adh']
+    del clients_dem_cat['CATagedem']
+    clients_dem_cat['CDSEXE'] = clients_dem['CDSEXE']
+    clients_dem_cat['CDTMT'] = clients_dem['CDTMT']
+    clients_dem_cat['CDCATCL'] = clients_dem['CDCATCL']
 
-# Enlever des variables catégorielles
-del clients_dem_cat['NBENF']
-del clients_dem_cat['CATAGEAD']
-del clients_dem_cat['CATadh']
-del clients_dem_cat['CDSEXE']
+    # Enlever des variables catégorielles
+    del clients_dem_cat['NBENF']
+    del clients_dem_cat['CATAGEAD']
+    del clients_dem_cat['CATadh']
+    del clients_dem_cat['CDSEXE']
 
-print(clients_dem_cat)
+    print(clients_dem_cat)
 
-clients_dem_adh_cat = pd.DataFrame(clients_adh_cat).append( pd.DataFrame(clients_dem_cat))
-print(clients_dem_adh_cat)
-X = clients_dem_adh_cat.to_numpy(dtype='str')
-print(X)
-print(clients_dem_adh_cat.columns.values)
-mca = MCA(row_labels=clients_dem_adh_cat.index.values.astype('str'), var_labels=clients_dem_adh_cat.columns.values)
+    clients_dem_adh_cat = pd.DataFrame(clients_adh_cat).append( pd.DataFrame(clients_dem_cat))
+    print(clients_dem_adh_cat)
+    X = clients_dem_adh_cat.to_numpy(dtype='str')
+    print(X)
+    print(clients_dem_adh_cat.columns.values)
+    mca = MCA(row_labels=clients_dem_adh_cat.index.values.astype('str'), var_labels=clients_dem_adh_cat.columns.values)
 
-mca.fit(X)
-print(mca.eig_)
-print(mca.col_labels_)
+    mca.fit(X)
+    print(mca.eig_)
+    print(mca.col_labels_)
 
-interpretationTable = pd.DataFrame({'val_axe1': mca.col_coord_[:, 0],
-                                    'contrib_axe1': mca.col_contrib_[:, 0],
-                                    'cos2_axe1': mca.col_cos2_[:, 0],
-                                    'val_axe2': mca.col_coord_[:, 1],
-                                    'contrib_axe2': mca.col_contrib_[:, 1],
-                                    'cos2_axe2': mca.col_cos2_[:, 1],
-                                    'val_axe3': mca.col_coord_[:, 2],
-                                    'contrib_axe3': mca.col_contrib_[:, 2],
-                                    'cos2_axe3': mca.col_cos2_[:, 2]
-                                    }, index=mca.col_labels_)
+    interpretationTable = pd.DataFrame({'val_axe1': mca.col_coord_[:, 0],
+                                        'contrib_axe1': mca.col_contrib_[:, 0],
+                                        'cos2_axe1': mca.col_cos2_[:, 0],
+                                        'val_axe2': mca.col_coord_[:, 1],
+                                        'contrib_axe2': mca.col_contrib_[:, 1],
+                                        'cos2_axe2': mca.col_cos2_[:, 1],
+                                        'val_axe3': mca.col_coord_[:, 2],
+                                        'contrib_axe3': mca.col_contrib_[:, 2],
+                                        'cos2_axe3': mca.col_cos2_[:, 2]
+                                        }, index=mca.col_labels_)
 
-mask_sup_5 = ((interpretationTable['cos2_axe1'] > 0.2) | (interpretationTable['cos2_axe2'] > 0.2))
-print(interpretationTable[mask_sup_5])
+    mask_sup_5 = ((interpretationTable['cos2_axe1'] > 0.2) | (interpretationTable['cos2_axe2'] > 0.2))
+    print("################")
+    print("####Table des Contributions####")
+    print("################")
+    print(interpretationTable[mask_sup_5])
+    print("################")
+    print("################")
+
+    mca.plot_eigenvalues()
+
+    print(mca.row_labels)
+    print(mca.col_labels_)
+
+    print(mca.col_contrib_[:, 3])
+    print(mca.col_cos2_)
+
+    mca.plot_col_cos2(num_axis=1, short_labels=False, nb_values=5)
+    mca.plot_col_cos2(num_axis=2, short_labels=False, nb_values=5)
+    mca.plot_col_contrib(num_axis=1, short_labels=False, nb_values=5)
+    mca.plot_col_contrib(num_axis=2, short_labels=False, nb_values=5)
+
+    mca.mapping_col(num_x_axis=1, num_y_axis=2, short_labels=False)
+    mca.mapping_row(num_x_axis=1, num_y_axis=2)
+    print("#################")
+    print("#####END ACM#####")
+    print("#################")
+
+if __name__ == "__main__":
+    analyse_acm()
 
 #######
 ## Analyse des corrélations:
@@ -115,19 +146,3 @@ print(interpretationTable[mask_sup_5])
 # CDCATCL = 21 est corrélé positivement avec l'axe 1
 # CDTMT = 2 est corrélé négativement avec l'axe 1
 # CDCATCL = 10 est corrélé négativement avec l'axe 1
-
-# mca.plot_eigenvalues()
-
-# print(mca.row_labels)
-# print(mca.col_labels_)
-
-# print(mca.col_contrib_[:, 3])
-# print(mca.col_cos2_)
-
-# mca.plot_col_cos2(num_axis=1, short_labels=False, nb_values=5)
-# mca.plot_col_cos2(num_axis=2, short_labels=False, nb_values=5)
-# mca.plot_col_contrib(num_axis=1, short_labels=False, nb_values=5)
-# mca.plot_col_contrib(num_axis=2, short_labels=False, nb_values=5)
-
-# mca.mapping_col(num_x_axis=1, num_y_axis=2, short_labels=False)
-# mca.mapping_row(num_x_axis=1, num_y_axis=2)
