@@ -24,12 +24,12 @@ from afc import analyse_afc
 from validation_cat import validation_cat
 from validation_num import validation_num
 
+metrics_tabs()
+metrics_tabs_bis()
 
 clean_client_tbl()
 clean_client_tbl_bis()
 
-metrics_tabs()
-metrics_tabs_bis()
 
 fusion_dem()
 fusion_in_one_file()
@@ -43,10 +43,11 @@ decision_tree_num()
 decision_tree_cat()
 decision_tree_cat_num()
 
+linear_regression_cat()
+
 analyse_acm()
 analyse_afc()
 
-linear_regression_cat()
 
 validation_num()
 validation_cat()
