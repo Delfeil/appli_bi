@@ -60,16 +60,14 @@ def validation_num():
     from sklearn.naive_bayes import GaussianNB
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.linear_model import LogisticRegression
-    from sklearn.svm import SVC
 
     dummycl = DummyClassifier(strategy="most_frequent")
     gmb = GaussianNB()
     dectree = DecisionTreeClassifier()
     logreg = LogisticRegression()
-    svc = SVC()
 
-    lst_classif = [dummycl, gmb, dectree, logreg, svc]
-    lst_classif_names = ['Dummy most_frequent', 'Naive Bayes', 'Decision tree', 'Logistic regression', "SVC"]
+    lst_classif = [dummycl, gmb, dectree, logreg]
+    lst_classif_names = ['Dummy most_frequent', 'Naive Bayes', 'Decision tree', 'Logistic regression']
 
 
     ###

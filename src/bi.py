@@ -16,12 +16,13 @@ from decision_tree_num import decision_tree_num
 from decision_tree_cat import decision_tree_cat
 from decision_tree_cat_num import decision_tree_cat_num
 
-from validation_num import validation_num
-from validation_cat import validation_cat
+from linear_regression_cat import linear_regression_cat
 
 from acm import analyse_acm
 from afc import analyse_afc
 
+from validation_cat import validation_cat
+from validation_num import validation_num
 
 
 clean_client_tbl()
@@ -44,6 +45,8 @@ decision_tree_cat_num()
 
 analyse_acm()
 analyse_afc()
+
+linear_regression_cat()
 
 validation_num()
 validation_cat()
