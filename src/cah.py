@@ -55,7 +55,7 @@ def cah_cat():
     plt.xlabel('sample index')
     plt.ylabel('distance')
     plt.tight_layout()
-    plt.savefig('../figs/hierarchical-clustering')
+    plt.savefig('../fig/hierarchical-clustering')
     plt.close()
     print("####################################################")
     print("#####RUN CLASSIFICATION ASCENDENTE HIÉRARCHIQUE#####")
