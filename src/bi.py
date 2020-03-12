@@ -24,6 +24,8 @@ from afc import analyse_afc
 from validation_cat import validation_cat
 from validation_num import validation_num
 
+from cah_dem_cat import cah_cat
+
 metrics_tabs()
 metrics_tabs_bis()
 
@@ -51,3 +53,5 @@ analyse_afc()
 
 validation_num()
 validation_cat()
+
+cah_cat()

@@ -37,9 +37,9 @@ def cah_cat():
 
     print(clients)
 
-    clients_reduced = clients.iloc[5000:]
-    del clients
-    X_cat_one_hot = pd.get_dummies(clients_reduced.astype(str))
+    # clients_reduced = clients.iloc[2500:]
+    # del clients
+    X_cat_one_hot = pd.get_dummies(clients.astype(str))
     print(X_cat_one_hot)
     # print(type(X_cat_one_hot.index.values), X_cat_one_hot.index.values.tolist())
 

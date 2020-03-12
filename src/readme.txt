@@ -5,7 +5,8 @@ il faut avoir les librairies:
 - Matplotlib >= 2.0.0
 - Scikit-learn >= 0.18.0
 - fanalysis >= 0.0.1
+- scipy >= 1.4.1
 
 
-Pour lancer le programme, si suffit de lancer la commande:
+Pour lancer le programme, il suffit de lancer la commande:
 python3 ./bi.py
