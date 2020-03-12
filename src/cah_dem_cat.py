@@ -10,7 +10,7 @@ def cah_cat():
     ###
     # Récupération des données
     ###
-    clients = pd.read_csv('../donnees/fusion/dem_adh.csv', sep=',')
+    clients = pd.read_csv('../donnees/fusion/dem.csv', sep=',')
 
     print(clients)
 
@@ -19,6 +19,7 @@ def cah_cat():
 
         # enlever les valeurs numériques
     del clients['DTADH']
+    del clients['DTDEM']
     del clients['MTREV']
     del clients['AGEAD']
     del clients['adh']
@@ -36,26 +37,28 @@ def cah_cat():
 
     print(clients)
 
-    X_cat_one_hot = pd.get_dummies(clients.astype(str))
+    clients_reduced = clients.iloc[5000:]
+    del clients
+    X_cat_one_hot = pd.get_dummies(clients_reduced.astype(str))
     print(X_cat_one_hot)
-
+    # print(type(X_cat_one_hot.index.values), X_cat_one_hot.index.values.tolist())
 
     # hierarchical clustering
     from scipy.cluster.hierarchy import dendrogram, linkage
 
-    lst_labels = map(lambda pair: pair[0]+str(pair[1]), classes.values)
+    # lst_labels = map(lambda pair: pair[0]+str(pair[1]), X_cat_one_hot.index.values.tolist())
     linkage_matrix = linkage(X_cat_one_hot, 'ward')
     fig = plt.figure()
     dendrogram(
         linkage_matrix,
         color_threshold=0,
-        labels=lst_labels,
+        labels=X_cat_one_hot.index.values.tolist(),
     )
     plt.title('Hierarchical Clustering Dendrogram (Ward)')
     plt.xlabel('sample index')
     plt.ylabel('distance')
     plt.tight_layout()
-    plt.savefig('../figs/hierarchical-clustering')
+    plt.savefig('../fig/hierarchical-clustering')
     plt.close()
     print("####################################################")
     print("#####RUN CLASSIFICATION ASCENDENTE HIÉRARCHIQUE#####")

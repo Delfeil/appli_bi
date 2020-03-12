@@ -1,4 +1,4 @@
-Pour lancer le script, il faut au préalable avoir python version 3.8
+Pour lancer le script, il faut au préalable avoir python version 3.6
 il faut avoir les librairies:
 - pandas 0.23.3
 - NumPy >= 1.11.0

@@ -13,35 +13,6 @@ def decision_tree_cat():
     ###
     # On récuoère les données catégoriques
     ###
-
-    def cross_validation(lst_classif,lst_classif_names,X,y):
-        for clf,name_clf in zip(lst_classif,lst_classif_names):
-            # TODO : complete with function cross_val_score
-            scores = cross_val_score(clf, X, y, cv=5, verbose=False)
-            # print(pd.DataFrame(scores))
-            print("Accuracy of "+name_clf+" classifier on cross-validation: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
-
-    def discretize(data, feature_names):
-        list_prefix = ['eqsized_bins_', 'eqintervaled_bins_']
-        nb_bin = 10
-        for prefix in list_prefix:
-            print("###### Discretization with "+prefix+" ######")
-
-            for attr in feature_names:
-                if 'sized' in prefix:
-                    data[prefix+attr]=pd.qcut(data[attr],nb_bin)
-                else:
-                    data[prefix+attr]=pd.cut(data[attr],nb_bin)
-                # use pd.concat to join the new columns with your original dataframe
-                data=pd.concat([data,pd.get_dummies(data[prefix+attr],prefix=prefix+attr)],axis=1)
-                # now drop the original column (you don't need it anymore)
-                data.drop(prefix+attr,axis=1, inplace=True)
-
-            feature_names_bins = filter(lambda x: x.startswith(prefix) and x.endswith(']'), list(data))
-            X_discret = data[feature_names_bins]
-            print(X_discret.head())
-            return X_discret
-
     clients_adh = pd.read_csv('../donnees/fusion/adh.csv', sep=',')
     clients_dem = pd.read_csv('../donnees/fusion/dem.csv', sep=',')
 
@@ -80,7 +51,6 @@ def decision_tree_cat():
     X = fusion_clients_cat[feature_names]
     y = fusion_clients_cat['is_adh']
 
-    # X_discret = discretize(X, feature_names)
     X_cat_one_hot = pd.get_dummies(X.astype(str))
 
     print("labor normalized")
@@ -95,8 +65,6 @@ def decision_tree_cat():
 
     lst_classif = [dectree]
     lst_classif_names = ['Decision tree']
-
-    # cross_validation(lst_classif, lst_classif_names, X_norm, y)
 
     for clf,name_clf in zip(lst_classif,lst_classif_names):
         clf.fit(X_cat_one_hot, y)
