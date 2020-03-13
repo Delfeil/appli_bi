@@ -22,6 +22,8 @@ from acm import analyse_acm
 from afc import analyse_afc
 
 from validation_cat import validation_cat
+from validation_cat_treevars import validation_cat_treevars
+from validation_cat_lesstreevars import validation_cat_lesstreevars
 from validation_num import validation_num
 
 from cah_dem_cat import cah_cat
@@ -53,5 +55,7 @@ analyse_afc()
 
 validation_num()
 validation_cat()
+validation_cat_treevars()
+validation_cat_lesstreevars()
 
 cah_cat()
