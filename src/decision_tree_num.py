@@ -83,8 +83,8 @@ def decision_tree_num():
         # TODO
         # y_pred = clf.predict(X_test)
         #
-        # print('Accuracy of '+name_clf+' classifier on training set: {:.2f}'
-        #       .format(clf.score(X, y)))
+        print('Accuracy of '+name_clf+' classifier on training set: {:.2f}'
+              .format(clf.score(X, y)))
         # print('Accuracy of '+name_clf+' classifier on test set: {:.2f}'
         #  .format(clf.score(X_test, y_test)))
         # print(confusion_matrix(y_test, y_pred))
@@ -94,7 +94,7 @@ def decision_tree_num():
                                     feature_names=feature_names,
                                     class_names=fusion_clients_num['is_adh'].unique(),
                                     filled=True, rounded=True,
-                                    special_characters=True)
+                                    special_characters=True, max_depth=5)
     graph = graphviz.Source(dot_data)
     graph.render(directory='../fig',filename='decision_tree_num')
     print("###############################")

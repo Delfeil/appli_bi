@@ -71,8 +71,8 @@ def decision_tree_cat():
         # TODO
         # y_pred = clf.predict(X_test)
         #
-        # print('Accuracy of '+name_clf+' classifier on training set: {:.2f}'
-        #       .format(clf.score(X, y)))
+        print('Accuracy of '+name_clf+' classifier on training set: {:.2f}'
+              .format(clf.score(X_cat_one_hot, y)))
         # print('Accuracy of '+name_clf+' classifier on test set: {:.2f}'
         #  .format(clf.score(X_test, y_test)))
         # print(confusion_matrix(y_test, y_pred))
